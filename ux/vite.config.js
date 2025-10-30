@@ -5,9 +5,8 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   // Set base path for GitHub Pages
-  // For repo at github.com/username/GreenAcres.UX, it will be served at username.github.io/GreenAcres.UX/
-  // Change to '/' if using a custom domain or deploying to username.github.io
-  base: '/GreenAcres.UX/',
+  // Using custom domain leisureplan.app, so base is root
+  base: '/',
   server: {
     proxy: {
       '/api': {
