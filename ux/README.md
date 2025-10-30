@@ -1,15 +1,5 @@
-# Green Acres Demonstration - React Frontend
+## leisureplan.app 
 
-This project is a professional React frontend for the Green Acres Demonstration application, built with Vite, Material UI, and React Router. All code is contained in the `ux` directory.
-
-## Features
-- Material UI 3 (Google look and feel)
-- Responsive layout: Banner, left menu, chat window, and results area
-- React Router navigation (Plans, Settings)
-- Factored components for maintainability
-- Chat interface with RESTful backend integration
-- Professional theme and color palette
-- Unit testing setup
 
 ## Getting Started
 
@@ -36,6 +26,13 @@ Run tests with:
 npm test
 ```
 
+## Deployment
+
+This app is currently published off a special branch using github static pages. Pushing changes to github is not enough, you need to build a deployment package on the `gh-pages` branch, as follows: 
+```bash
+npm run deploy
+```
+
 ## Notes
 - All frontend code is in the `ux` directory.
 - Backend REST API endpoints should be configured in `src/api.js`.
@@ -48,6 +45,3 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
