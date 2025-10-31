@@ -1,9 +1,9 @@
 
+import { useAuth0 } from '@auth0/auth0-react';
 import { Box, CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { useRef, useState } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 import {
   fetchChart,
   fetchChatDialog,
@@ -57,7 +57,7 @@ function parseDialogToMessages(dialogText) {
 function MainChat() {
   const { getAccessTokenSilently } = useAuth0();
   const [messages, setMessages] = useState([
-    { sender: 'agent', text: 'Welcome to Green Acres! How can I help you?' },
+    { sender: 'agent', text: 'Welcome to LeisurePlan.App! How can I help you?' },
   ]);
   const [loading, setLoading] = useState(false);
   const [sessionId, setSessionId] = useState(null);

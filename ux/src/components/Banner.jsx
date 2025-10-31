@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Box, IconButton, Menu, MenuItem, Button } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Banner = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -61,7 +61,7 @@ const Banner = () => {
         </Menu>
         <Box sx={{ flexGrow: 1 }}>
           <Typography variant="h4" component="div" sx={{ fontWeight: 700, color: '#fff' }}>
-            Green Acres Demonstration
+            LeisurePlan.App
           </Typography>
         </Box>
         {!isLoading && (
