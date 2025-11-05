@@ -3,7 +3,8 @@
     "allow": [
       "Bash(cat:*)",
       "Bash(npm install:*)",
-      "Bash(nslookup:*)"
+      "Bash(nslookup:*)",
+      "WebFetch(domain:bmhtdwxiwr.us-east-1.awsapprunner.com)"
     ],
     "deny": [],
     "ask": []

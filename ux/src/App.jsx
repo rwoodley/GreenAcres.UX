@@ -242,8 +242,8 @@ function MainChat() {
       }}>
         <ResultsWindow
           images={[
-            flowsUrl ? { src: flowsUrl, alt: 'Flows Chart', detailsLink: sessionId && selectedQueryId ? `/api/Chart/FlowsTable?sessionId=${sessionId}&queryId=${selectedQueryId}` : null } : null,
-            balancesUrl ? { src: balancesUrl, alt: 'Balances Chart', detailsLink: sessionId && selectedQueryId ? `/api/Chart/FlowsTable?sessionId=${sessionId}&queryId=${selectedQueryId}` : null } : null,
+            flowsUrl ? { src: flowsUrl, alt: 'Flows Chart', detailsLink: sessionId && selectedQueryId ? `${import.meta.env.VITE_API_BASE_URL}/api/Chat/FlowsTable?sessionId=${sessionId}&queryId=${selectedQueryId}` : null } : null,
+            balancesUrl ? { src: balancesUrl, alt: 'Balances Chart', detailsLink: sessionId && selectedQueryId ? `${import.meta.env.VITE_API_BASE_URL}/api/Chat/FlowsTable?sessionId=${sessionId}&queryId=${selectedQueryId}` : null } : null,
           ].filter(Boolean)}
           tables={retInputs ? [
             {
