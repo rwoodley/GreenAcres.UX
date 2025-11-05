@@ -297,6 +297,17 @@ function App() {
               <Route path="*" element={<MainChat />} />
             </Routes>
           </Box>
+          <Box sx={{
+            borderTop: '1px solid #e0e0e0',
+            backgroundColor: '#f5f5f5',
+            padding: '8px 16px',
+            fontSize: '0.75rem',
+            color: '#666',
+            textAlign: 'left',
+            lineHeight: 1.4
+          }}>
+            <strong>Disclaimer:</strong> The information and calculations provided on this website are for educational purposes only and are not intended as financial, investment, tax, or legal advice. Individual circumstances vary, and you should consult with a qualified financial advisor, tax professional, or attorney before making any decisions based on the information provided.
+          </Box>
         </Box>
       </Router>
     </ThemeProvider>
