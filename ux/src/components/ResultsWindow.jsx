@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper, Box, Typography } from '@mui/material';
 
-const ResultsWindow = ({ images, tables, queryId }) => {
+const ResultsWindow = ({ images, tables, queryId, onDetailsClick }) => {
   const hasContent = (images && images.length > 0) || (tables && tables.length > 0);
 
   if (!hasContent) {
@@ -57,7 +57,7 @@ const ResultsWindow = ({ images, tables, queryId }) => {
                     }}
                   />
                 </Box>
-                {img.detailsLink && (
+                {img.detailsLink && onDetailsClick && (
                   <Box sx={{ mt: 0.5, textAlign: 'center' }}>
                     <Typography
                       variant="caption"
@@ -69,7 +69,7 @@ const ResultsWindow = ({ images, tables, queryId }) => {
                           color: '#115293',
                         }
                       }}
-                      onClick={() => window.open(img.detailsLink, '_blank')}
+                      onClick={() => onDetailsClick(img.detailsLink)}
                     >
                       Monthly Details
                     </Typography>

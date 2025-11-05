@@ -7,6 +7,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import {
   fetchChart,
   fetchChatDialog,
+  fetchFlowsTable,
   fetchQueryStatus,
   fetchRetirementInputs,
   sendMessage
@@ -210,6 +211,24 @@ function MainChat() {
     }
   };
 
+  // Handler for clicking on Monthly Details link
+  const handleDetailsClick = async (detailsLink) => {
+    try {
+      const token = await getAccessTokenSilently();
+      const html = await fetchFlowsTable(sessionId, selectedQueryId, token);
+
+      // Open HTML in new window
+      const newWindow = window.open('', '_blank');
+      if (newWindow) {
+        newWindow.document.write(html);
+        newWindow.document.close();
+      }
+    } catch (e) {
+      console.error('Failed to load monthly details:', e);
+      alert('Failed to load monthly details: ' + e.message);
+    }
+  };
+
   return (
     <Box sx={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
       {/* Column 1: Chat */}
@@ -242,8 +261,8 @@ function MainChat() {
       }}>
         <ResultsWindow
           images={[
-            flowsUrl ? { src: flowsUrl, alt: 'Flows Chart', detailsLink: sessionId && selectedQueryId ? `${import.meta.env.VITE_API_BASE_URL}/api/Chat/FlowsTable?sessionId=${sessionId}&queryId=${selectedQueryId}` : null } : null,
-            balancesUrl ? { src: balancesUrl, alt: 'Balances Chart', detailsLink: sessionId && selectedQueryId ? `${import.meta.env.VITE_API_BASE_URL}/api/Chat/FlowsTable?sessionId=${sessionId}&queryId=${selectedQueryId}` : null } : null,
+            flowsUrl ? { src: flowsUrl, alt: 'Flows Chart', detailsLink: sessionId && selectedQueryId ? `/api/Chat/FlowsTable?sessionId=${sessionId}&queryId=${selectedQueryId}` : null } : null,
+            balancesUrl ? { src: balancesUrl, alt: 'Balances Chart', detailsLink: sessionId && selectedQueryId ? `/api/Chat/FlowsTable?sessionId=${sessionId}&queryId=${selectedQueryId}` : null } : null,
           ].filter(Boolean)}
           tables={retInputs ? [
             {
@@ -276,6 +295,7 @@ function MainChat() {
             },
           ] : []}
           queryId={selectedQueryId || queryId}
+          onDetailsClick={handleDetailsClick}
         />
       </Box>
     </Box>

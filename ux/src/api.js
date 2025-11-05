@@ -74,3 +74,13 @@ export async function fetchQueryStatus(sessionId, queryId, token) {
   if (!res.ok) throw new Error('Failed to fetch query status');
   return trimmedText;
 }
+
+// GET /api/chat/FlowsTable?sessionId=...&queryId=...
+export async function fetchFlowsTable(sessionId, queryId, token) {
+  const res = await fetch(`${API_BASE}/Chat/FlowsTable?sessionId=${encodeURIComponent(sessionId)}&queryId=${encodeURIComponent(queryId)}`, {
+    headers: buildHeaders(token)
+  });
+  const html = await res.text();
+  if (!res.ok) throw new Error('Failed to load flows table');
+  return html;
+}

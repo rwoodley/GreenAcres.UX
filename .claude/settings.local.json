@@ -4,7 +4,7 @@
       "Bash(cat:*)",
       "Bash(npm install:*)",
       "Bash(nslookup:*)",
-      "WebFetch(domain:bmhtdwxiwr.us-east-1.awsapprunner.com)"
+      "WebFetch(domain:localhost:7299)"
     ],
     "deny": [],
     "ask": []
